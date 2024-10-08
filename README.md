@@ -3,6 +3,24 @@
 
 ---
 
+## A Simple Example
+````python
+from oneapi import OneAPI
+from oneapi.types import Request, Response
+
+app = OneAPI()
+
+
+@app.route('/home')
+def home(request: Request, response: Response):
+    response.text = 'This is the home page'
+````
+````shell
+gunicorn main:app
+````
+
+---
+
 ## Features (To-Do)
 Here's a list of upcoming features that will be included in OneAPI:
 
