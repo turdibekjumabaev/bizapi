@@ -24,7 +24,7 @@ gunicorn main:app
 ## Features (To-Do)
 Here's a list of upcoming features that will be included in OneAPI:
 
- - [ ] **Function-Based Routing**
+ - [X] **Function-Based Routing**
  - [ ] **Parameterized Routing**
  - [ ] **Class-Based Handlers**
  - [ ] **Allowed Methods**
