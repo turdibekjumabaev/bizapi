@@ -15,6 +15,11 @@ app = BizAPI()
 @app.route('/home')
 def home(request: Request, response: Response):
     response.text = 'This is the home page'
+
+    
+@app.route('/say-hello/{name}')
+def sayhello(request: Request, response: Response, name: str):
+    response.text = f"Assalawma áleykum {name}"
 ````
 ````shell
 gunicorn main:app
@@ -23,10 +28,10 @@ gunicorn main:app
 ---
 
 ## Features (To-Do)
-Here's a list of upcoming features that will be included in OneAPI:
+Here's a list of upcoming features that will be included in BizAPI:
 
  - [X] **Function-Based Routing**
- - [ ] **Parameterized Routing**
+ - [X] **Parameterized Routing**
  - [ ] **Class-Based Handlers**
  - [ ] **Allowed Methods**
  - [ ] **Django Routes Compatibility**
