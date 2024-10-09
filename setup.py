@@ -23,7 +23,8 @@ VERSION = '0.0.1'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
-    'WebOb==1.8.8'
+    'WebOb==1.8.8',
+    'parse==1.20.2'
 ]
 
 # What packages are optional?
