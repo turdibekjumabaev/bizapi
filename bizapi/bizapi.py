@@ -15,9 +15,9 @@ class BizAPI:
 
     def handle_request(self, request):
         response = Response()
-        handler = self.router.find_handler(request)
+        handler, kwargs = self.router.find_handler(request)
         if handler is not None:
-            handler(request, response)
+            handler(request, response, **kwargs)
         else:
             return page_not_found()
         return response

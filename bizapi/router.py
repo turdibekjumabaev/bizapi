@@ -1,3 +1,5 @@
+from parse import parse
+
 
 class Router:
     def __init__(self):
@@ -7,4 +9,9 @@ class Router:
         self.routes[path] = handler
 
     def find_handler(self, request):
-        return self.routes.get(request.path)
+        for path, handler in self.routes.items():
+            parsed = parse(path, request.path)
+            if parsed is not None:
+                return handler, parsed.named
+
+        return None, None
