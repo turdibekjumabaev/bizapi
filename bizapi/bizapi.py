@@ -3,7 +3,7 @@ from .router import Router
 from .errors import page_not_found
 
 
-class OneAPI:
+class BizAPI:
 
     def __init__(self):
         self.router = Router()

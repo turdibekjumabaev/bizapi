@@ -1,14 +1,15 @@
-# OneAPI
+# BizAPI
 **A Lightweight Web Framework for Python**
 
 ---
 
 ## A Simple Example
-````python
-from oneapi import OneAPI
-from oneapi.types import Request, Response
 
-app = OneAPI()
+````python
+from bizapi import BizAPI
+from bizapi.types import Request, Response
+
+app = BizAPI()
 
 
 @app.route('/home')
