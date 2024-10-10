@@ -1,5 +1,5 @@
-# BizAPI
-**A Lightweight Web Framework for Python**
+# <p align="center"> BizAPI </p>
+<p align="center">A Lightweight Web Framework for Python</p>
 
 ---
 
@@ -9,6 +9,9 @@
   * Routing
     * [Function-Based](#function-based-routing)
     * [Parameterized](#parameterized-routing)
+    * [Allowed Methods](#allowed-methods)
+    * [Class-Based](#class-based-routing)
+  * [Features](#features-to-do)
 
 ---
 
@@ -30,10 +33,6 @@ app = BizAPI()
 def home(request: Request, response: Response):
     response.text = 'This is the home page'
 
-    
-@app.route('/say-hello/{name}')
-def sayhello(request: Request, response: Response, name: str):
-    response.text = f"Assalawma áleykum {name}"
 ````
 ````shell
 gunicorn main:app
@@ -56,24 +55,48 @@ def index(request: Request, response: Response):
 
 ## Parameterized Routing
 ```python
+@app.route('/say-hello/{name}')
+def sayhello(request: Request, response: Response, name: str):
+    response.text = f"Assalawma áleykum {name}"
+```
+
+## Allowed Methods
+```python
 @app.route('/article', methods=['POST'])
 def create_article(request: Request, response: Response):
+    # Create a new article
     pass
 
 
 @app.route('/article', methods=['GET'])
 def get_article(request: Request, response: Response):
+    # Get an article
     pass
 ```
 ```python
-@app.post('/product')
+@app.post('/article')
 def create_product(request: Request, response: Response):
+    # Create a new article
     pass
 
 
-@app.get('/product')
+@app.get('/article')
 def get_product(request: Request, response: Response):
+    # Get an article
     pass
+```
+
+## Class-Based Routing
+```python
+@app.route('/article')
+class Article:
+    def get(request: Request, response: Response):
+        # Get an article
+        pass
+    
+    def post(request: Request, response: Response):
+        # Create a new article
+        pass
 ```
 
 ---
@@ -84,7 +107,7 @@ Here's a list of upcoming features that will be included in BizAPI:
  - [X] **Function-Based Routing**
  - [X] **Parameterized Routing**
  - [X] **Allowed Methods**
- - [ ] **Class-Based Routing**
+ - [X] **Class-Based Routing**
  - [ ] **Django Routes**
  - [ ] **Exception Handler**
  - [ ] **Templates**
