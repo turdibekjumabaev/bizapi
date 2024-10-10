@@ -13,12 +13,12 @@ from setuptools import find_packages, setup, Command
 
 # Package meta-data.
 NAME = 'BizAPI'
-DESCRIPTION = 'It is a simple and lightweight framework built for learning and experimentation purposes.'
+DESCRIPTION = 'It is a simple and lightweight web framework built for learning and experimentation purposes.'
 URL = 'https://github.com/turdibekjumabaev/oneapi'
 EMAIL = 'turdibekjumabaev05@gmail.com'
 AUTHOR = 'Turdıbek Jumabaev'
 REQUIRES_PYTHON = '>=3.9.0'
-VERSION = '0.0.3'
+VERSION = '0.0.4'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
