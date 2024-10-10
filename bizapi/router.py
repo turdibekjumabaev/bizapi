@@ -1,5 +1,6 @@
 from parse import parse
 
+from .types import Request
 from .exceptions import RouteAlreadyExistsError
 
 
@@ -8,15 +9,16 @@ class Router:
         self.routes = {}
 
     def add_route(self, path: str, handler, methods: list):
-        if path in self.routes:
-            raise RouteAlreadyExistsError(path)
+        if path not in self.routes:
+            self.routes[path] = {}
 
-        self.routes[path] = {
-            'handler': handler,
-            'methods': methods
-        }
+        for method in methods:
+            if method in self.routes[path]:
+                raise RouteAlreadyExistsError(path, method)
 
-    def find_handler(self, request):
+            self.routes[path][method] = handler
+
+    def find_handler(self, request: Request):
         for path, handler_data in self.routes.items():
             parsed = parse(path, request.path)
             if parsed is not None:

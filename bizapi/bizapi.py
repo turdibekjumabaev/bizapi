@@ -2,6 +2,8 @@ from .types import Request, Response
 from .router import Router
 from .errors import page_not_found, method_not_allowed
 
+import inspect
+
 
 class BizAPI:
 
@@ -17,13 +19,18 @@ class BizAPI:
         response = Response()
         handler_data, kwargs = self.router.find_handler(request)
         if handler_data is not None:
-            handler = handler_data['handler']
-            methods = handler_data['methods']
+            handler = handler_data.get(request.method, None)
 
-            if request.method not in methods:
+            if handler is None:
                 return method_not_allowed(response)
 
-            handler(request, response, **kwargs)
+            if inspect.isclass(handler):
+                handler_method = getattr(handler, request.method.lower(), None)
+                if handler_method is None:
+                    return method_not_allowed(response)
+                handler_method(request, response, **kwargs)
+            else:
+                handler(request, response, **kwargs)
         else:
             return page_not_found(response)
         return response
