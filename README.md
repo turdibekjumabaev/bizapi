@@ -146,7 +146,7 @@ Here's a list of upcoming features that will be included in BizAPI:
  - [X] **Class-Based Routing**
  - [X] **Simple Routes**
  - [X] **Templates**
- - [ ] **Static Folder**
+ - [X] **Static Folder**
  - [ ] **Exception Handler**
  - [ ] **Custom Response**
  - [ ] **Middleware**  
