@@ -52,7 +52,7 @@ class BizAPI:
 
         return wrapper
 
-    def add_route(self, path: str, handler, methods: list = None):
+    def register_route(self, path: str, handler, methods: list = None):
         if methods is None:
             methods = ['GET', 'POST', 'PUT', 'DELETE', 'HEAD', 'OPTIONS', 'PATCH', 'TRACE', 'CONNECT']
         self.router.add_route(path, handler, methods)
