@@ -11,6 +11,7 @@
     * [Parameterized](#parameterized-routing)
     * [Allowed Methods](#allowed-methods)
     * [Class-Based](#class-based-routing)
+    * [Simple Router](#simple-router)
   * [Features](#features-to-do)
 
 ---
@@ -42,12 +43,6 @@ gunicorn main:app
 
 ## Function-Based Routing
 ```python
-from bizapi import BizAPI
-from bizapi.types import Request, Response
-
-app = BizAPI()
-
-
 @app.route('/')
 def index(request: Request, response: Response):
     response.text = "Hello World!"
@@ -99,6 +94,15 @@ class Article:
         pass
 ```
 
+## Simple Router
+```python
+def create_article(request: Request, response: Response):
+    response.text = "BizAPI is the best"
+
+
+app.register_route('/article', create_article, ['POST'])
+```
+
 ---
 
 ## Features (To-Do)
@@ -108,7 +112,7 @@ Here's a list of upcoming features that will be included in BizAPI:
  - [X] **Parameterized Routing**
  - [X] **Allowed Methods**
  - [X] **Class-Based Routing**
- - [ ] **Django Routes**
+ - [X] **Simple Routes**
  - [ ] **Exception Handler**
  - [ ] **Templates**
  - [ ] **Static Folder**
