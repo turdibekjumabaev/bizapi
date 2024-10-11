@@ -18,12 +18,13 @@ URL = 'https://github.com/turdibekjumabaev/oneapi'
 EMAIL = 'turdibekjumabaev05@gmail.com'
 AUTHOR = 'Turdıbek Jumabaev'
 REQUIRES_PYTHON = '>=3.9.0'
-VERSION = '0.0.5'
+VERSION = '0.0.6'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
     'WebOb==1.8.8',
-    'parse==1.20.2'
+    'parse==1.20.2',
+    'Jinja2==3.1.4',
 ]
 
 # What packages are optional?
