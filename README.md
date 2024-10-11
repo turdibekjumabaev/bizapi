@@ -1,6 +1,12 @@
 # <p align="center"> BizAPI </p>
 <p align="center">A Lightweight Web Framework for Python</p>
 
+<p align="center">
+    <img alt="PyPI - License" src="https://img.shields.io/pypi/l/BizAPI">
+    <img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/BizAPI">
+    <img alt="PyPI - Status" src="https://img.shields.io/pypi/status/BizAPI">
+</p>
+
 ---
 
 ## Contents
