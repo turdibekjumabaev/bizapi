@@ -12,6 +12,7 @@
     * [Allowed Methods](#allowed-methods)
     * [Class-Based](#class-based-routing)
     * [Simple Router](#simple-router)
+  * [Templates](#templates)
   * [Features](#features-to-do)
 
 ---
@@ -97,10 +98,41 @@ class Article:
 ## Simple Router
 ```python
 def create_article(request: Request, response: Response):
-    response.text = "BizAPI is the best"
+    response.text = "A new article has been created"
 
 
 app.register_route('/article', create_article, ['POST'])
+```
+
+---
+
+## Templates
+```python
+from bizapi import render
+
+# First way
+@app.route('/say-hello', methods=['GET'])
+def home_page(request: Request, response: Response):
+    response.body = render('hello.html', title="Say Hello!", name="John")
+
+# Second way
+@app.route('/say-hello', methods=['GET'])
+def home_page(request: Request, response: Response):
+    response.body = render('hello.html', {
+        'title': 'Say Hello!',
+        'name': 'John'
+    })
+```
+```html
+<!-- File: templates/hello.html -->
+<html>
+    <head>
+        <title>{{title}}</title>
+    </head>
+    <body>
+        <p>Hello {{name}}</p>
+    </body>
+</html>
 ```
 
 ---
@@ -113,9 +145,9 @@ Here's a list of upcoming features that will be included in BizAPI:
  - [X] **Allowed Methods**
  - [X] **Class-Based Routing**
  - [X] **Simple Routes**
- - [ ] **Exception Handler**
- - [ ] **Templates**
+ - [X] **Templates**
  - [ ] **Static Folder**
+ - [ ] **Exception Handler**
  - [ ] **Custom Response**
  - [ ] **Middleware**  
 
@@ -123,6 +155,3 @@ Here's a list of upcoming features that will be included in BizAPI:
 
 **License**  
 This project is licensed under the [MIT License](https://opensource.org/license/mit).
-
----
-[**Community of Lazy People**](https://t.me/judaerinshek)
