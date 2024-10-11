@@ -1,4 +1,5 @@
 from jinja2 import FileSystemLoader
+from whitenoise import WhiteNoise
 
 from .types import Request, Response
 from .router import Router
@@ -11,11 +12,16 @@ import os
 
 class BizAPI:
 
-    def __init__(self, template_dir: str = 'templates'):
+    def __init__(self, template_dir: str = 'templates', static_dir: str = 'static'):
         self.router = Router()
+        self.whitenoise = WhiteNoise(self.wsgi_app, root=static_dir)
+
         globals.template_environment.loader = FileSystemLoader(os.path.abspath(template_dir))
 
     def __call__(self, environ, start_response):
+        return self.whitenoise(environ, start_response)
+
+    def wsgi_app(self, environ, start_response):
         request = Request(environ)
         response = self.handle_request(request)
         return response(environ, start_response)
