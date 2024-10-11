@@ -1,14 +1,19 @@
+from jinja2 import FileSystemLoader
+
 from .types import Request, Response
 from .router import Router
 from .errors import page_not_found, method_not_allowed
+from . import globals
 
 import inspect
+import os
 
 
 class BizAPI:
 
-    def __init__(self):
+    def __init__(self, template_dir: str = 'templates'):
         self.router = Router()
+        globals.template_environment.loader = FileSystemLoader(os.path.abspath(template_dir))
 
     def __call__(self, environ, start_response):
         request = Request(environ)
