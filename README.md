@@ -19,6 +19,7 @@
     * [Class-Based](#class-based-routing)
     * [Simple Router](#simple-router)
   * [Templates](#templates)
+  * [Exception Handler](#exception-handler)
   * [Features](#features-to-do)
 
 ---
@@ -143,6 +144,17 @@ def home_page(request: Request, response: Response):
 
 ---
 
+## Exception Handler
+```python
+def on_exception(request: Request, response: Response, exc: Exception):
+    response.text = str(exc)
+
+
+app.add_exception_handler(on_exception)
+```
+
+---
+
 ## Features (To-Do)
 Here's a list of upcoming features that will be included in BizAPI:
 
@@ -153,7 +165,7 @@ Here's a list of upcoming features that will be included in BizAPI:
  - [X] **Simple Routes**
  - [X] **Templates**
  - [X] **Static Folder**
- - [ ] **Exception Handler**
+ - [X] **Exception Handler**
  - [ ] **Custom Response**
  - [ ] **Middleware**  
 
