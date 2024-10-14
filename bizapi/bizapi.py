@@ -13,7 +13,7 @@ import os
 class BizAPI:
 
     def __init__(self, template_dir: str = 'templates', static_dir: str = 'static'):
-        self.router = Router()
+        self.__router = Router()
         self.whitenoise = WhiteNoise(self._wsgi_app, root=static_dir)
         self.exception_handler = None
 
@@ -29,7 +29,7 @@ class BizAPI:
 
     def _handle_request(self, request):
         response = Response()
-        handler_data, kwargs = self.router.find_handler(request)
+        handler_data, kwargs = self.__router.find_handler(request)
         if handler_data is not None:
             handler = handler_data.get(request.method, None)
 
@@ -54,7 +54,7 @@ class BizAPI:
 
     def _add_method_route(self, path: str, methods: list = None):
         def wrapper(func):
-            self.router.add_route(path, func, methods)
+            self.__router.add_route(path, func, methods)
             return func
 
         return wrapper
@@ -64,7 +64,7 @@ class BizAPI:
             methods = ['GET', 'POST', 'PUT', 'DELETE', 'HEAD', 'OPTIONS', 'PATCH', 'TRACE', 'CONNECT']
 
         def wrapper(func):
-            self.router.add_route(path, func, methods)
+            self.__router.add_route(path, func, methods)
             return func
 
         return wrapper
@@ -72,7 +72,7 @@ class BizAPI:
     def register_route(self, path: str, handler, methods: list = None):
         if methods is None:
             methods = ['GET', 'POST', 'PUT', 'DELETE', 'HEAD', 'OPTIONS', 'PATCH', 'TRACE', 'CONNECT']
-        self.router.add_route(path, handler, methods)
+        self.__router.add_route(path, handler, methods)
 
     def add_exception_handler(self, handler):
         self.exception_handler = handler
