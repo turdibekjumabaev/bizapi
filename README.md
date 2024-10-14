@@ -20,6 +20,7 @@
     * [Simple Router](#simple-router)
   * [Templates](#templates)
   * [Exception Handler](#exception-handler)
+  * [Custom Responses](#custom-response)
   * [Features](#features-to-do)
 
 ---
