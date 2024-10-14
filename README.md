@@ -114,18 +114,21 @@ app.register_route('/article', create_article, ['POST'])
 ---
 
 ## Templates
+
 ```python
-from bizapi import render
+from bizapi import render_template
+
 
 # First way
 @app.route('/say-hello', methods=['GET'])
 def home_page(request: Request, response: Response):
-    response.body = render('hello.html', title="Say Hello!", name="John")
+    response.html = render_template('hello.html', title="Say Hello!", name="John")
+
 
 # Second way
 @app.route('/say-hello', methods=['GET'])
 def home_page(request: Request, response: Response):
-    response.body = render('hello.html', {
+    response.html = render_template('hello.html', {
         'title': 'Say Hello!',
         'name': 'John'
     })
@@ -155,6 +158,30 @@ app.add_exception_handler(on_exception)
 
 ---
 
+## Custom Response
+```python
+@app.route('/json')
+def json(request: Request, response: Response):
+    response_data = {
+        'message': 'Hello World',
+    }
+    response.json = response_data
+```
+```python
+@app.route('/text')
+def text(request: Request, response: Response):
+    response.text = "Hello World"
+```
+```python
+from bizapi import render_template
+
+@app.route('/html')
+def html(request: Request, response: Response):
+    response.html = render_template('index.html', text='Say Hello')
+```
+
+---
+
 ## Features (To-Do)
 Here's a list of upcoming features that will be included in BizAPI:
 
@@ -166,7 +193,7 @@ Here's a list of upcoming features that will be included in BizAPI:
  - [X] **Templates**
  - [X] **Static Folder**
  - [X] **Exception Handler**
- - [ ] **Custom Response**
+ - [X] **Custom Response**
  - [ ] **Middleware**  
 
 ---
