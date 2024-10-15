@@ -18,7 +18,7 @@ URL = 'https://github.com/turdibekjumabaev/oneapi'
 EMAIL = 'turdibekjumabaev05@gmail.com'
 AUTHOR = 'Turdıbek Jumabaev'
 REQUIRES_PYTHON = '>=3.9.0'
-VERSION = '0.0.9'
+VERSION = '0.1.0'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
@@ -129,11 +129,12 @@ setup(
         'Programming Language :: Python :: 3.12',
         'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: PyPy',
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
         'Operating System :: OS Independent',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
         'Topic :: Internet :: WWW/HTTP :: WSGI',
         'Topic :: Internet :: WWW/HTTP :: WSGI :: Application',
+        'Topic :: Internet :: WWW/HTTP :: WSGI :: Middleware',
         'Intended Audience :: Developers'
     ],
     # $ setup.py publish support.
