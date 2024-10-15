@@ -1,3 +1,5 @@
+from webob import Request
+
 # <p align="center"> BizAPI </p>
 <p align="center">A Lightweight Web Framework for Python</p>
 
@@ -21,7 +23,8 @@
   * [Templates](#templates)
   * [Exception Handler](#exception-handler)
   * [Custom Responses](#custom-response)
-  * [Features](#features-to-do)
+  * [Middleware](#middleware)
+  * [Features ✅](#features-to-do)
 
 ---
 
@@ -183,6 +186,23 @@ def html(request: Request, response: Response):
 
 ---
 
+## Middleware
+```python
+from bizapi.middleware import Middleware
+from bizapi.types import Request, Response
+
+class ExampleMiddleware(Middleware):
+    def request(self, request: Request):
+        print(f'A request was received at the URL "{request.path}"')
+
+    def response(self, request: Request, response: Response):
+        print(f'A response was returned to the URL "{request.path}"')
+
+app.add_middleware(ExampleMiddleware)
+```
+
+---
+
 ## Features (To-Do)
 Here's a list of upcoming features that will be included in BizAPI:
 
@@ -195,7 +215,7 @@ Here's a list of upcoming features that will be included in BizAPI:
  - [X] **Static Folder**
  - [X] **Exception Handler**
  - [X] **Custom Response**
- - [ ] **Middleware**  
+ - [X] **Middleware**  
 
 ---
 
