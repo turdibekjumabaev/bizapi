@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://telegra.ph/BizAPI-10-18"><img src="https://raw.githubusercontent.com/turdibekjumabaev/turdibekjumabaev/refs/heads/main/host/Logo%20BizApi%20Black.png" alt="BizAPI"></a>
+  <a href="https://telegra.ph/BizAPI-10-18"><img src="https://raw.githubusercontent.com/turdibekjumabaev/turdibekjumabaev/refs/heads/main/host/bizapi-logo.png" alt="BizAPI"></a>
 </p>
 
 <p align="center">A Lightweight Web Framework for Python</p>
