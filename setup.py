@@ -18,7 +18,7 @@ URL = 'https://github.com/turdibekjumabaev/oneapi'
 EMAIL = 'turdibekjumabaev05@gmail.com'
 AUTHOR = 'Turdıbek Jumabaev'
 REQUIRES_PYTHON = '>=3.9.0'
-VERSION = '0.1.0'
+VERSION = '0.1.1'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
